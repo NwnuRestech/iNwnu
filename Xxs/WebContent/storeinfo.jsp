@@ -156,7 +156,8 @@
             width: 70%;float: left;
         }
     </style>
-
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+                        
 
 </head>
 <body>
@@ -329,7 +330,10 @@
                 </div>
                 <div class="storeinfos">
                     <div class="storeinfos-left">联系方式：</div>
-                    <div  class="storeinfos-right">${rest.rest_tel }</div>
+                    <div  class="storeinfos-right">${rest.rest_tel }&nbsp&nbsp&nbsp
+                    <a href="sms:${rest.rest_tel }" ><i class="fa fa-file-text-o"></i></a>&nbsp&nbsp&nbsp
+                    <a href="tel:${rest.rest_tel }" ><i class="fa fa-phone"></i></a>
+                    </div>
                 </div>
             </div>
         </li>

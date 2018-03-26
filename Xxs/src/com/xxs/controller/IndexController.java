@@ -23,7 +23,6 @@ import com.xxs.dao.impl.IndexDaoImpl;
 @WebServlet("/IndexController")
 public class IndexController extends HttpServlet implements Servlet {
 	private static final long serialVersionUID = 1L;
-       
     public IndexController() {
         super();
     }
