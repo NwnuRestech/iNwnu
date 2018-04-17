@@ -7,10 +7,12 @@ import org.junit.Test;
 
 import com.xxs.bean.Food;
 import com.xxs.dao.FoodDao;
+import com.xxs.dao.IndexDao;
 
 public class FoodDaoImplTest {
 	
 	FoodDao foodDao = new FoodDaoImpl();
+	IndexDao indexDao = new IndexDaoImpl();
 	@Test
 	public void testInsertFood() throws SQLException {
 		int insertFood = foodDao.insertFood(new Food(2, "1", "1", "1", "1", 1));
@@ -24,4 +26,11 @@ public class FoodDaoImplTest {
 		}
 	}
 
+	@Test
+	public void testSelectFoods() throws SQLException{
+		List<Food> foods = indexDao.selectFoods();
+		for(Food item:foods){
+			System.out.println(item);
+		}
+	}
 }

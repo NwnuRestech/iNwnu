@@ -17,7 +17,10 @@ public class StuDaoImpTest {
 	}
 
 	@Test
-	public void testSelectStu() {
+	public void testSelectStu() throws SQLException {
+		Stu stu = stuDaoImpl.selectStuByNickname("bb");
+		System.out.println(stu);
+	
 	}
 
 }
