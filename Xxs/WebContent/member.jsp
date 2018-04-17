@@ -26,22 +26,22 @@
 
 		</div>
 		<ul class="member-nav">
-			<li><a href=""><i class="am-icon-bell-o" style="margin-top: 16px;"></i><span>系统通知</span></a></li>
-			<li><a href=""><i class="am-icon-cart-arrow-down" style="margin-top: 16px;"></i><span>饮食分析</span></a></li>
-			<li><a href="storeOrder.html"><i class="am-icon-newspaper-o" style="margin-top: 16px;"></i><span>我的评价</span></a></li>
+			<li><a href=""><i class="am-icon-bell-o"></i><span>系统通知</span></a></li>
+			<li><a href=""><i class="am-icon-cart-arrow-down"></i><span>饮食分析</span></a></li>
+			<li><a href="storeOrder.html"><i class="am-icon-newspaper-o"></i><span>我的评价</span></a></li>
 
 
-			<li><a href="yhq.html"><i class="am-icon-cc-mastercard" style="margin-top: 16px;"></i><span>优惠券</span></a></li>
-			<li><a href=""><i class="am-icon-dollar" style="margin-top: 16px;"></i><span>我的账单</a></li>
+			<li><a href="yhq.html"><i class="am-icon-cc-mastercard"></i><span>优惠券</span></a></li>
+			<li><a href=""><i class="am-icon-dollar"></i><span>我的账单</a></li>
 		</ul>
 		<ul class="member-nav mt">
-			<li><a href=""><i class="am-icon-phone" style="margin-top: 16px;"></i>联系我们</a></li>
+			<li><a href=""><i class="am-icon-phone"></i>联系我们</a></li>
 		</ul>
 		<div class="h50"></div>
 		<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default footer "  id="">
 		      <ul class="am-navbar-nav am-cf am-avg-sm-4">
 		          <li >
-		            <a href="index.jsp" class="">
+		            <a href="IndexController" class="">
 		                <span class=""><img src="images/bo_food0.png"/></span>
 		                <span class="am-navbar-label">点餐</span>
 		            </a>

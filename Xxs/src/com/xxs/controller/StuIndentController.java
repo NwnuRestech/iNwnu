@@ -64,7 +64,7 @@ public class StuIndentController extends HttpServlet {
 				List<Indent> stuIndents = indentDao.StuSelectAllindents(stu_id);
 				request.setAttribute("stuIndents", stuIndents);
 				//TODO 跳转至用户所有订单页面(StuAllindents.jsp)
-				request.getRequestDispatcher("StuAllindents..jsp").forward(request, response);
+				request.getRequestDispatcher("StuAllindents.jsp").forward(request, response);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

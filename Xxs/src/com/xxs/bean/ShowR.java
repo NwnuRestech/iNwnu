@@ -25,6 +25,11 @@ public class ShowR {
 	public ShowR() {
 		super();
 	}
+	
+	public ShowR(String rest_name) {
+		super();
+		this.rest_name = rest_name;
+	}
 	@Override
 	public String toString() {
 		return "ShowR [rest_name=" + rest_name + ", img_loc=" + img_loc + "]";

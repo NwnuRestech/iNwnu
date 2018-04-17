@@ -1,10 +1,10 @@
 package com.xxs.bean;
 
 public class ShowFandR {
-	private String food_name;
-	private String food_money;
-	private String rest_name;
-	private String img_loc;
+	private String food_name;//食物名称
+	private String food_money;//食物价格
+	private String rest_name;//商铺名称
+	private String img_loc;//商铺图片
 	public String getFood_name() {
 		return food_name;
 	}
@@ -38,6 +38,13 @@ public class ShowFandR {
 	}
 	public ShowFandR() {
 		super();
+	}
+	
+	public ShowFandR(String food_name, String food_money, String rest_name) {
+		super();
+		this.food_name = food_name;
+		this.food_money = food_money;
+		this.rest_name = rest_name;
 	}
 	@Override
 	public String toString() {
