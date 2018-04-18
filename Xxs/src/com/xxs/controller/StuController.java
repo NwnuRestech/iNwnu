@@ -138,7 +138,7 @@ public class StuController extends HttpServlet {
 				if("".equals(newDept)){
 					newDept = stu.getStu_dept();
 				}
-				int res = stuDao.updateStuInfo(newNickname, newTel, newPassword, newDorm, newDept, stu_id);
+				int res = stuDao.updateStuInfo(newNickname, newTel, newDorm, newPassword, newDept, stu_id);
 				if(res == 1){
 					request.getRequestDispatcher("GotoMember").forward(request, response);
 				}else{

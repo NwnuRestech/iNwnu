@@ -5,6 +5,23 @@ public class ShowFandR {
 	private String food_money;//食物价格
 	private String rest_name;//商铺名称
 	private String img_loc;//商铺图片
+	private String food_id;//食物id
+	
+	
+	public ShowFandR(String food_name, String food_money, String rest_name, String img_loc, String food_id) {
+		super();
+		this.food_name = food_name;
+		this.food_money = food_money;
+		this.rest_name = rest_name;
+		this.img_loc = img_loc;
+		this.food_id = food_id;
+	}
+	public String getFood_id() {
+		return food_id;
+	}
+	public void setFood_id(String food_id) {
+		this.food_id = food_id;
+	}
 	public String getFood_name() {
 		return food_name;
 	}
@@ -49,7 +66,7 @@ public class ShowFandR {
 	@Override
 	public String toString() {
 		return "ShowFandR [food_name=" + food_name + ", food_money=" + food_money + ", rest_name=" + rest_name
-				+ ", img_loc=" + img_loc + "]";
+				+ ", img_loc=" + img_loc + ", food_id=" + food_id + "]";
 	}
 	
 

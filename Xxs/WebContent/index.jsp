@@ -73,7 +73,7 @@
 		      <c:forEach items = "${show }"  var = "item">
 		      	 <li>
 		       		 <div class="am-gallery-item">
-		          		 <a href="detail.html" class="">
+		          		 <a href="FoodDetailController?food_id=${item.food_id }" class="">
 		              		<img src="IndexImg/5.jpg"  alt=""/>     <!-- ${item.img_loc }  -->                   <!-- 食物的图片 根据食物种类id展示图片-->
 		            		<h3 class="am-gallery-title">${item.food_name }</h3>    <!-- 展示食物的名称，价格，食物所属店铺，图片 -->
 		              		<div class="am-gallery-desc">
@@ -95,7 +95,7 @@
 			 <c:forEach items = "${show1 }" varStatus="status"  var = "item">     <!-- 展示商铺的名称，图片 -->
 		      	<li>
 					<div class="am-gallery-item">
-						<a href="detail.html" class="">
+						<a href="GotoStoreinfo?rest_id=${item.rest_id }" class="">
 							<img src="IndexImg/1.jpg"  alt=""/><!--${item.img_loc }  -->
 							<h3 class="am-gallery-title">${item.rest_name }</h3>
 						</a>

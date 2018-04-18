@@ -41,7 +41,6 @@ public class LogController extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String op = request.getParameter("op");
-		System.out.println("op:"+op);
 		switch (op) {
 		case "login":
 			try {
@@ -58,13 +57,14 @@ public class LogController extends HttpServlet {
 	private void login(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException{
 		String stu_id = request.getParameter("stu_id");
 		String stu_password = request.getParameter("stu_password");
-		System.out.println(stu_id+"  "+stu_password);
+//		System.out.println(stu_id+"  "+stu_password);
 		//1是学生，2是商户
 		String type = null;
 		if(stu_id != null && stu_password != null){
 			Stu selectStu = stuDao.selectStu(stu_id, stu_password);
 			if(selectStu == null){
 				Rest selectRest = restDao.selectRest(stu_id, stu_password);
+				
 				if(selectRest == null){
 					request.getRequestDispatcher("loginfail.jsp").forward(request, response);
 					return;

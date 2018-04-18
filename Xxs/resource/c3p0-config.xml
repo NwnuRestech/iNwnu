@@ -12,5 +12,17 @@
 		<property name="initialPoolSize">10000</property>
 		<property name="minPoolSize">10</property>
 		<property name="maxPoolSize">10</property>
+		
+		<!-- 从网上copy的 -->
+		<property name="defaultAutoCommit" value="false"/>
+ 		<property name="maxIdle" value="5"/>
+		<property name="minIdle" value="1"/>
+		<property name="maxActive" value="40"/>
+		<property name="removeAbandoned" value="true"/>
+		<property name="removeAbandonedTimeout" value="180"/>
+		<property name="maxWait" value="15000"/>
+		<property name="timeBetweenEvictionRunsMillis" value="120000"/>
+		<property name="minEvictableIdleTimeMillis" value="300000"/>
+		
 	</default-config>
 </c3p0-config>

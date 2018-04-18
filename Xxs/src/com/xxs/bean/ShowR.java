@@ -3,8 +3,15 @@ package com.xxs.bean;
 public class ShowR {
 	private String rest_name;
 	private String img_loc;
+	private String rest_id;
 	
 	
+	public String getRest_id() {
+		return rest_id;
+	}
+	public void setRest_id(String rest_id) {
+		this.rest_id = rest_id;
+	}
 	public String getRest_name() {
 		return rest_name;
 	}
@@ -26,13 +33,19 @@ public class ShowR {
 		super();
 	}
 	
+	public ShowR(String rest_name, String img_loc, String rest_id) {
+		super();
+		this.rest_name = rest_name;
+		this.img_loc = img_loc;
+		this.rest_id = rest_id;
+	}
 	public ShowR(String rest_name) {
 		super();
 		this.rest_name = rest_name;
 	}
 	@Override
 	public String toString() {
-		return "ShowR [rest_name=" + rest_name + ", img_loc=" + img_loc + "]";
+		return "ShowR [rest_name=" + rest_name + ", img_loc=" + img_loc + ", rest_id=" + rest_id + "]";
 	}
 	
 	
