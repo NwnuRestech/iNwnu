@@ -21,6 +21,7 @@ public class RestDaoImpl implements RestDao {
 		
 		return 0;
 	}
+	
 	@Override
 	public Rest selectRest(String rest_id, String rest_password) throws SQLException {
 		QueryRunner qr = new QueryRunner(JDBCTools.getDataSource());

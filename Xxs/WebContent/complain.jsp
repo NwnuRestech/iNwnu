@@ -68,7 +68,7 @@
             if($(".iDate.full").length>0){
                 $(".iDate.full").datetimepicker({
                     locale: "zh-cn",
-                    format: "YYYY-MM-DD a hh:mm",
+                    format: "YYYY-MM-DD hh:mm",
                     dayViewHeaderFormat: "YYYY年 MMMM"
                 });
             }
@@ -81,13 +81,31 @@
             }
         })
     </script>
+    <script type="text/javascript">
+	$(function(){
+		$("#unameExists").hide();//将提示隐藏起来
+	 	$("#complain_rest").blur(function(){//当失去焦点时，触发这个函数
+			var restname = $("#complain_rest").val();//获取输入框内的值
+			$.post("ComplaintController?op=checkrest", {//触发
+				"restname" : restname
+			}, function(data) {
+				var res = JSON.stringify(data);//从一个json对象中解析出字符串
+				if (res.indexOf("not") >= 0)//如果字符串中含有not,显示该商铺不存在
+					//根据服务器返回的结果，在页面中给用户以提示
+					$("#unameExists").hide();
+				else
+					$("#unameExists").show();
+			}, "json");
+		})
+	});
+    </script>
 
 
 </head>
 <body>
 <header data-am-widget="header" class="am-header am-header-default header">
     <div class="am-header-left am-header-nav">
-        <a href="#left-link" class="">
+        <a href="IndexController" class="">
             <i class="am-header-icon am-icon-angle-left"></i>
         </a>
     </div>
@@ -110,7 +128,7 @@
 
     <div style="width: 100%;height: 130px;padding: 5px 25px;" >
         <div style="height: 120px;width: 85%;float: left;border-radius: 18px;border:1px solid #bebebe;padding: 5px 10px;background-color: #ffdcb9">
-            <a > <p> 投诉人：</p>
+            <a ><p>投诉商铺：</p>
                 <p>投诉时间：</p>
                 <p>投诉事件：</p>
                 <p>具体描述：</p>
@@ -149,18 +167,17 @@
                 <div class="dialogTop" style="height: 60px;">
                     <a href="javascript:;" class="claseDialogBtn" style="width: 25px;">关闭</a>
                 </div>
-                <form action="" method="post" id="editForm">
+                <form action="ComplaintController?op=complaint" method="post" id="editForm">
                     <ul class="editInfos">
-                        <li><label style="margin-left: 15px;"><font color="#ff0000">* </font>投诉人：<input type="text" name="" required value="" class="ipt" style="height: 32px;width: 177px;border: 1px solid #bebebe;border-radius: 5px;" /></label></li>
-                        <li><label style="margin-left: 0px;"><font color="#ff0000">* </font>投诉事件：<input type="text" name="" required value="" class="ipt" style="height: 32px;width: 177px;border: 1px solid #bebebe;border-radius: 5px;" /></label></li>
-
+                        <li><label style="margin-left: 15px;"><font color="#ff0000">* </font>投诉商铺：<input type="text" id = "complain_rest" name="restname" required value="" class="ipt" style="height: 32px;width: 177px;border: 1px solid #bebebe;border-radius: 5px;" /></label><span id="unameExists"
+					style="color: red; font-size: 8px;">该商铺不存在</span></li>
+                        <li><label style="margin-left: 0px;"><font color="#ff0000">* </font>投诉事件：<input type="text" name="complain_event" required value="" class="ipt" style="height: 32px;width: 177px;border: 1px solid #bebebe;border-radius: 5px;" /></label></li>
                         <li><label><font color="#ff0000">* </font>投诉时间：
                             <div class="iDate full" style="line-height: 50px;">
-                                <input type="text" name="" required value=""  style="margin-top: -16px;"/>
+                                <input type="text" name="complain_time" required value=""  style="margin-top: -16px;"/>
                                 <button type="button" class="addOn" style="border: 1px solid #bebebe;"></button>
                             </div>
                         </label></li>
-                        <li><label style="margin-left: 3px;"><font color="#ff0000">* </font>具体描述：<input type="text" name="" required value="" class="ipt" style="height: 32px;width: 177px;border: 1px solid #bebebe;border-radius: 5px;"/></label></li>
                         <li><input type="submit" value="确认提交" class="submitBtn" /></li>
                     </ul>
                 </form>
