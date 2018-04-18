@@ -19,7 +19,29 @@ a,button,input{
 }
 input{
 	border:0 none;
-	-webkit-appearance:none
+	-webkit-appearance:none;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    outline: none;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+.hint_wrong {
+    color: #EA5A70;
+}
+.hint {
+    font-size: 12px;
+    text-align: right;
+    padding-right: 10px;
+    margin-bottom: 7px;
+    visibility: hidden;
+}
+input, textarea {
+    border: 1px solid #ddeafb;
+}
+.wrong {
+    border-color: #EA5A70;
 }
 ul,p{
 	padding:0;

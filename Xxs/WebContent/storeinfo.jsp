@@ -163,13 +163,13 @@
 <body>
 <header data-am-widget="header" class="am-header am-header-default header" style="position: fixed;">
     <div class="am-header-left am-header-nav">
-        <a href="#left-link" class="">
+        <a href="GotoAllstore" class="">
             <i class="am-header-icon am-icon-angle-left"></i>
         </a>
     </div>
     <h1 class="am-header-title"> <a href="#title-link" class="" style="color: #333;">档口详情</a></h1>
     <div class="am-header-right am-header-nav">
-        <a href="#right-link" class=""> </a>
+        <a href="GotoAllstore" class=""> </a>
     </div>
 </header>
 
