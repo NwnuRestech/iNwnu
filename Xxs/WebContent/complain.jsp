@@ -15,46 +15,13 @@
 
 
 
-    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/commonapp.css"/>
 
-    <script type="text/javascript">
-        var w,h,className;
-        function getSrceenWH(){
-            w = $(window).width();
-            h = $(window).height();
-            $('#dialogBg').width(w).height(h);
-        }
-
-        window.onresize = function(){
-            getSrceenWH();
-        }
-        $(window).resize();
-
-        $(function(){
-            getSrceenWH();
-
-            //显示弹框
-            $('.box a').click(function(){
-                className = $(this).attr('class');
-                $('#dialogBg').fadeIn(300);
-                $('#dialog').removeAttr('class').addClass('animated '+className+'').fadeIn();
-            });
-
-            //关闭弹窗
-            $('.claseDialogBtn').click(function(){
-                $('#dialogBg').fadeOut(300,function(){
-                    $('#dialog').addClass('bounceOutUp').fadeOut();
-                });
-            });
-        });
-    </script>
-
+    
     <style type="text/css">
         .fixed-btnword{ position: fixed; bottom: 0; height: 50px; background: #fff; width: 100%;}
         .fixed-btnword { float: left; width: 100%; margin: 0 auto; text-align: center; line-height: 50px;}
         .fixed-btnword  a{ width: 100%;    border: 1px solid #e5e5e5;     border-radius: 3px; padding: 7px  30px;     line-height: 18px;}
-
-
     </style>
 
     <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
@@ -87,7 +54,7 @@
 <body>
 <header data-am-widget="header" class="am-header am-header-default header">
     <div class="am-header-left am-header-nav">
-        <a href="#left-link" class="">
+        <a href="IndexController" class="">
             <i class="am-header-icon am-icon-angle-left"></i>
         </a>
     </div>
@@ -108,68 +75,31 @@
         <h2 class="am-intro-title">学生餐饮文化中心投诉处</h2>
     </div>
 
-    <div style="width: 100%;height: 130px;padding: 5px 25px;" >
-        <div style="height: 120px;width: 85%;float: left;border-radius: 18px;border:1px solid #bebebe;padding: 5px 10px;background-color: #ffdcb9">
-            <a > <p> 投诉人：</p>
-                <p>投诉时间：</p>
-                <p>投诉事件：</p>
-                <p>具体描述：</p>
-            </a>
+    <div style="width: 100%;height:290px;padding: 5px 25px;" >
+        <div style="height:275px;width: 100%;float: left;border-radius: 18px;border:1px solid #bebebe;padding: 5px 18px;background-color: #ffdcb9;margin-left: 0px;">
+            <form action="" method="post" id="editForm">
+                <ul class="editInfos">
+                    
+                    <li><label style="margin-left: 15px;"><font color="#ff0000">* </font>投诉事件：<input type="text" name="" required value="" class="ipt" style="height: 32px;width: 177px;border: 1px solid #bebebe;border-radius: 5px;" /></label></li>
+
+                    <li><label><font color="#ff0000">*</font>投诉时间：
+                        <div class="iDate full" style="line-height: 60px;margin-left: 18px;">
+                            <input type="text" name="" required value=""  style="margin-top: 0px;border-radius: 8px;"/>
+                            <button type="button" class="addOn" style="border: 1px solid #bebebe;"></button>
+                        </div>
+                    </label></li>
+                    <li><label style="margin-left: 22px;"><font color="#ff0000">* </font>投诉留言：<input type="text" name="" required value="" class="ipt" style="height: 32px;width: 177px;border: 1px solid #bebebe;border-radius: 5px;margin-right: -2px;"/></label></li>
+                    <li><input type="submit" value="确认投诉" class="submitBtn" style="margin-top: 15px;"/></li>
+                </ul>
+            </form>
         </div>
-        <div style="height: 100px;width: 15%;float: left;padding-top: 35px;"><img src="images/p.png"  class="am-circle" style="height: 50px;width: 50px;"/></div>
 
 
 
-    </div>
-
-    <div style="width: 100%;height: 70px;padding: 5px 25px;">
-
-        <div style="height: 60px;width: 15%;float: left;padding-top: 0px;"><img src="images/p.png"  class="am-circle" style="height: 50px;width: 50px;"/></div>
-        <div style="height: 60px;width: 85%;float: left;border-radius: 18px;border:1px solid #bebebe;padding: 5px 10px;">
-            <h2>投诉成功！请等待回复！</h2>
-
-        </div>
 
     </div>
 
 </div>
 <div class="h50"></div>
-<div class="fixed-btnword">
-    <div id="wrapper">
-
-
-        <div class="box">
-            <div class="demo">
-                <a href="javascript:;" class="bounceIn">我要投诉</a>
-            </div>
-
-            <div id="dialogBg"></div>
-            <div id="dialog" class="animated">
-                <img class="dialogIco" width="50" height="50" src="images/ico.png" alt="" />
-                <div class="dialogTop" style="height: 60px;">
-                    <a href="javascript:;" class="claseDialogBtn" style="width: 25px;">关闭</a>
-                </div>
-                <form action="" method="post" id="editForm">
-                    <ul class="editInfos">
-                        <li><label style="margin-left: 15px;"><font color="#ff0000">* </font>投诉人：<input type="text" name="" required value="" class="ipt" style="height: 32px;width: 177px;border: 1px solid #bebebe;border-radius: 5px;" /></label></li>
-                        <li><label style="margin-left: 0px;"><font color="#ff0000">* </font>投诉事件：<input type="text" name="" required value="" class="ipt" style="height: 32px;width: 177px;border: 1px solid #bebebe;border-radius: 5px;" /></label></li>
-
-                        <li><label><font color="#ff0000">* </font>投诉时间：
-                            <div class="iDate full" style="line-height: 50px;">
-                                <input type="text" name="" required value=""  style="margin-top: -16px;"/>
-                                <button type="button" class="addOn" style="border: 1px solid #bebebe;"></button>
-                            </div>
-                        </label></li>
-                        <li><label style="margin-left: 3px;"><font color="#ff0000">* </font>具体描述：<input type="text" name="" required value="" class="ipt" style="height: 32px;width: 177px;border: 1px solid #bebebe;border-radius: 5px;"/></label></li>
-                        <li><input type="submit" value="确认提交" class="submitBtn" /></li>
-                    </ul>
-                </form>
-            </div>
-        </div>
-
-    </div>
-
-</div>
-
 </body>
 </html>

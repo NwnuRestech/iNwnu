@@ -16,8 +16,6 @@ public interface IndexDao {
 	public Rest selectRestByrest_id(String rest_id) throws SQLException;
 	//根据商铺的热度查询出热度最高的四个商铺的名称及商铺图片
 	public List<Rest> selectRests() throws SQLException; 
-	
-	
 	//食物：显示食物的名称，价格，所属商铺，食物的图片（食物的类别，例如：若食物是汤类，则显示类别为汤类的图片）
 	//商铺：显示商铺的名称，图片
 	//根据rest_id查询出该商铺的图片

@@ -195,7 +195,7 @@
 <div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default footer "  id="">
     <ul class="am-navbar-nav am-cf am-avg-sm-4">
         <li >
-            <a href="index.jsp" class="">
+            <a href="IndexController" class="">
                 <span class=""><img src="images/bo_food0.png"/></span>
                 <span class="am-navbar-label">点餐</span>
             </a>

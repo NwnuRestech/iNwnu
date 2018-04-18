@@ -26,6 +26,10 @@ public class IndexDaoImpl implements IndexDao {
 		QueryRunner queryRunner = new QueryRunner(JDBCTools.getDataSource());
 		return queryRunner.query("select * from rest order by rest_hot desc limit 4 ", new BeanListHandler<Rest>(Rest.class));	
 	}
+	public static void main(String[] args) throws SQLException {
+		IndexDaoImpl idi = new IndexDaoImpl();
+		System.out.println(idi.selectRests());
+	}
 
 	@Override
 	public Food selectRest_idByfood_id(int food_id) throws SQLException {
