@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import com.xxs.utils.JDBCTools;
 import com.xxs.bean.Img;
@@ -24,6 +25,7 @@ public class StuDaoImpl implements StuDao {
 		Stu query = qr.query("select *from stu where stu_id = ? and stu_password = ?", new BeanHandler<Stu>(Stu.class), stu_id, stu_password);
 		return query;
 	}
+	
 	@Override
 	public int updateStuInfo(String nickname, String tel, String dorm,String password, String dept, String stu_id) throws SQLException {
 		QueryRunner qr = new QueryRunner(JDBCTools.getDataSource());
