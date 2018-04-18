@@ -23,8 +23,6 @@
         .fixed-btnword{ position: fixed; bottom: 0; height: 50px; background: #fff; width: 100%;}
         .fixed-btnword { float: left; width: 100%; margin: 0 auto; text-align: center; line-height: 50px;}
         .fixed-btnword  a{ width: 100%;    border: 1px solid #e5e5e5;     border-radius: 3px; padding: 7px  30px;     line-height: 18px;}
-
-
     </style>
 
     <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
@@ -57,7 +55,7 @@
 <body>
 <header data-am-widget="header" class="am-header am-header-default header">
     <div class="am-header-left am-header-nav">
-        <a href="#left-link" class="">
+        <a href="IndexController" class="">
             <i class="am-header-icon am-icon-angle-left"></i>
         </a>
     </div>
@@ -96,9 +94,6 @@
                 </ul>
             </form>
         </div>
-
-
-
 
     </div>
 

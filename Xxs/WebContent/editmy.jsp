@@ -53,13 +53,31 @@
             reader.readAsDataURL(file);
         }
     </script>
+ 	<script type="text/javascript">
+		$(function() {
+			$("#nicknameExists").hide();
+	 		$("#newName").blur(function() {
+				var newName = $("#newName").val();
+				$.post("StuController?op=StunicknameExist", {
+					"newName" : newName
+				}, function(data) {
+					var res = JSON.stringify(data);//将json数组解析为字符串
+					if (res.indexOf("exists") >= 0)
+						//根据服务器返回的结果，在页面中给用户以提示
+						$("#nicknameExists").show();
+					else
+						$("#nicknameExists").hide();
+				}, "json");
+			})
+		}); 
+	</script>
 
 
 </head>
 <body>
 <header data-am-widget="header" class="am-header am-header-default header">
     <div class="am-header-left am-header-nav">
-        <a href="#left-link" class="">
+        <a href="member.jsp" class="">
             <i class="am-header-icon am-icon-angle-left"></i>
         </a>
     </div>
@@ -85,16 +103,13 @@
                      </a>
                 </p>
             </div>
-
-
         </div>
     </a></li>
     <li>
         <div class="list-nav"> <span>昵称</span></div>
-        <div class="list-right">  <input type="text" placeholder="请输入昵称" name="newNickname" style="border: 1px solid #7c7c7c;width: 200px;"/></div>
+        <div class="list-right">  <input id = "newName" type="text" placeholder="请输入昵称" name="newNickname" style="border: 1px solid #7c7c7c;width: 200px;"/></div>
+        <span id="nicknameExists" style="color: red; font-size: 12px;">昵称已存在</span>     
     </li>
-
-
     <li>
         <div class="list-nav"><span>电话</span></div>
         <div class="list-right"><input type="text" placeholder="请输入电话" name="newTel" style="border: 1px solid #7c7c7c;width: 200px;"/></div>

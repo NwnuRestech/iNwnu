@@ -82,19 +82,21 @@ public class StuController extends HttpServlet {
 		}
 	}
 
-	private void NicknameExist(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		System.out.println("NicknameExist");
-		String newNickname = request.getParameter("newNickname");
+	private void NicknameExist(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		System.out.println("nicknameExist");
+		String nickname = request.getParameter("newNickname");//获取不到?
+		System.out.println("newNickname:"+nickname);
+		PrintWriter out = response.getWriter();
 		try {
-			PrintWriter out = response.getWriter();
-			Stu stu = stuDao.selectStuByNickname(newNickname);
+			Stu stu = stuDao.selectStuByNickname(nickname);
+			System.out.println("stu:"+stu);
 			if (stu != null) {
 				out.write("{\"res\":\"exists\"}");
 			} else {
 				out.write("{\"res\":\"not\"}");
 			}
 			out.flush();
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
@@ -108,11 +110,6 @@ public class StuController extends HttpServlet {
 		Stu stu;
 		try {
 			stu = stuDao.selectStuByStu_id(stu_id);
-//			System.out.println(stu);
-//			System.out.println("stu_nickname:"+stu.getStu_nickname());
-//			System.out.println("stu_tel:"+stu.getStu_tel());
-//			System.out.println("stu_dorm:"+stu.getStu_dorm());
-//			System.out.println("stu_dept"+stu.getStu_dept());
 			//用户登录成功之后，点击我的进入个人中心页面,在个人中心页面中点击修改信息进入修改信息页面
 			PrintWriter out = response.getWriter();
 			if(stu != null && type.equals("1")){ //学生登录成功
@@ -120,28 +117,28 @@ public class StuController extends HttpServlet {
 				System.out.println("newNickname:"+newNickname);
 				if("".equals(newNickname)){//在修改信息页面的输入框里，判断输入框里有没有值，若没有，则用原来的信息
 					newNickname = stu.getStu_nickname();
-					System.out.println("1");
 				}
 				String newTel = request.getParameter("newTel");
 				System.out.println("newTel:"+newTel);
 				if("".equals(newTel)){
 					newTel = stu.getStu_tel();
-					System.out.println("2");
 				}
 				String newPassword = request.getParameter("newPassword");
+				String pwd = request.getParameter("password");//获取旧密码，若新密码为空，则用原来的旧密码
+				if("".equals(newPassword)){
+					newPassword=pwd;
+				}
 				String newDorm = request.getParameter("newDorm");
 				System.out.println("newDorm:"+newDorm);
 				if("".equals(newDorm)){
 					newDorm = stu.getStu_dorm();
-					System.out.println("3");
 				}
 				String newDept = request.getParameter("newDept");
 				System.out.println("newDept:"+newDept);
 				if("".equals(newDept)){
 					newDept = stu.getStu_dept();
-					System.out.println("4");
 				}
-				int res = stuDao.updateStuInfo(newNickname, newTel, newPassword, newDorm, newDept, stu_id);
+				int res = stuDao.updateStuInfo(newNickname, newTel, newDorm, newPassword, newDept, stu_id);
 				if(res == 1){
 					request.getRequestDispatcher("GotoMember").forward(request, response);
 				}else{

@@ -1,4 +1,4 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -22,12 +22,8 @@
 			      <li><img src="images/banner1.jpg"> </li>
 			  </ul> 
 		</div>
-		<a class="search">
-			<form action="" method="post">
-				<input type="text" name="bookName" placeholder="开启你的美食之旅…"
-					   style="width: 70%; height: 40px;margin-left: 10px;border: 1px solid #999999">
-				<input type="image"src="images/search.png" style="width: 60px; height: 40px;border: 1px solid #999999;margin-left: -5px">
-			</form>
+		<a href="search.html" class="search">
+			开启你的美食之旅...
 		</a>
 		<ul class="nav">
 			<li>
@@ -50,7 +46,6 @@
 			</li>
 			<li>
 				<a href="music.jsp">
-
 						<img src="images/in_music.png" >
 					<p>点歌</p>
 				</a>
@@ -78,7 +73,7 @@
 		      <c:forEach items = "${show }"  var = "item">
 		      	 <li>
 		       		 <div class="am-gallery-item">
-		          		 <a href="detail.html" class="">
+		          		 <a href="FoodDetailController?food_id=${item.food_id }" class="">
 		              		<img src="IndexImg/5.jpg"  alt=""/>     <!-- ${item.img_loc }  -->                   <!-- 食物的图片 根据食物种类id展示图片-->
 		            		<h3 class="am-gallery-title">${item.food_name }</h3>    <!-- 展示食物的名称，价格，食物所属店铺，图片 -->
 		              		<div class="am-gallery-desc">
@@ -100,7 +95,7 @@
 			 <c:forEach items = "${show1 }" varStatus="status"  var = "item">     <!-- 展示商铺的名称，图片 -->
 		      	<li>
 					<div class="am-gallery-item">
-						<a href="detail.html" class="">
+						<a href="GotoStoreinfo?rest_id=${item.rest_id }" class="">
 							<img src="IndexImg/1.jpg"  alt=""/><!--${item.img_loc }  -->
 							<h3 class="am-gallery-title">${item.rest_name }</h3>
 						</a>
@@ -140,7 +135,6 @@
 		                <span class="am-navbar-label">我的</span>
 		            </a>
 		          </li>
-		   
 		      </ul>
 		</div>
 
