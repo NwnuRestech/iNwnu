@@ -1,0 +1,6 @@
+查询店铺
+select rest_name from rest where rest_id="111";
+查询菜名
+select food_name from food where food_id="5218";
+查询店铺菜名
+select food_name from food where food_restid="303";
