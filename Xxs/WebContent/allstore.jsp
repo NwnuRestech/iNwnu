@@ -16,9 +16,7 @@
     <script type="text/javascript" src="js/jquery.min.js" ></script>
     <script type="text/javascript" src="js/amazeui.min.js" ></script>
     <style type="text/css">
-        .am-gallery-item:hover{
-            border: 1px solid #ff5500;
-        }
+       
         .paixu-store{ overflow: hidden; background: #fff;}
         .paixu-store li{ width: 40%; float: left; text-align: center;margin-left: 15px; line-height: 40px;}
         .paixu-store li a{ color: #666;}
@@ -27,7 +25,7 @@
 <body>
 <header data-am-widget="header" class="am-header am-header-default header">
     <div class="am-header-left am-header-nav">
-        <a href="index.jsp" class="">
+        <a href="index.html" class="">
             <i class="am-header-icon am-icon-angle-left"></i>
         </a>
     </div>
@@ -50,56 +48,99 @@
 </ul>
 
 ---一楼档口---
-<ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-default product">
-
-    <c:forEach  var="item" items="${rest1 }" varStatus="status" >
+<ul style="width: 470px;height: 130px;">
+	
+	
+	<c:forEach  var="item" items="${rest1 }" varStatus="status" >
+		
     <li>
-        <div class="am-gallery-item">
+        <div class="am-gallery-item" style="border-bottom:1px soild #ff0000;">
             <a href="GotoStoreinfo?rest_id=${item.rest_id }" class="">
-                <img src="images/p.png"  alt=""/>
-                <h3 class="am-gallery-title">${item.rest_name }</h3>
+                <div style="width: 120px;float: left;">
+                    <img src="images/p.png"  style="height:100px;weight:100px;margin-left: 15px;" alt=""/>
+
+                </div>
+                <div style="width: 250px;height:130 ;float: left;padding-left: 20px;border-bottom: 1px solid #999999;">
+                    <div style="height: 50px;width: 200px;font-size: 3rem">${item.rest_name }</div>
+                    <div style="float: left;height:60px;width:100px; "><p style="color: #999999;font-size: 1rem;">销量:350笔</p>
+                        <p style="padding-top: 15px;">地址</p></div>
+                    <div style="float: left;height: 60px;width:90px; padding-top: 30px;">评论（12）</div>
+                </div>
             </a>
         </div>
     </li>
-    </c:forEach>
 
+		   
+    </c:forEach>
+	
 </ul>
+
+
 
 
 ---二楼档口---
-<ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-default product">
-    <c:forEach  var="item" items="${rest2 }" varStatus="status" >
-	    <li>
-	        <div class="am-gallery-item">
-	            <a href="GotoStoreinfo?rest_id=${item.rest_id }" class="">
-	                <img src="images/p2.png"  alt=""/>
-	                <h3 class="am-gallery-title">${item.rest_name }</h3>
-	            </a>
-	        </div>
-	    </li>
+
+<ul style="width: 470px;height: 130px;">
+	
+	
+	<c:forEach  var="item" items="${rest2 }" varStatus="status" >
+		
+    <li>
+        <div class="am-gallery-item" style="border-bottom:1px soild #ff0000;">
+            <a href="GotoStoreinfo?rest_id=${item.rest_id }" class="">
+                <div style="width: 120px;float: left;">
+                    <img src="images/p.png"  style="height:100px;weight:100px;margin-left: 15px;" alt=""/>
+
+                </div>
+                <div style="width: 250px;height:130 ;float: left;padding-left: 20px;border-bottom: 1px solid #999999;">
+                    <div style="height: 50px;width: 200px;font-size: 3rem">${item.rest_name }</div>
+                    <div style="float: left;height:60px;width:100px; "><p style="color: #999999;font-size: 1rem;">销量:350笔</p>
+                        <p style="padding-top: 15px;">地址</p></div>
+                    <div style="float: left;height: 60px;width:90px; padding-top: 30px;">评论（12）</div>
+                </div>
+            </a>
+        </div>
+    </li>
+
+		   
     </c:forEach>
-
-
+	
 </ul>
+
 
 ---三楼档口---
-<ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-default product">
 
-    <c:forEach  var="item" items="${rest3 }" varStatus="status" >
-	    <li>
-	        <div class="am-gallery-item">
-	            <a href="GotoStoreinfo?rest_id=${item.rest_id }" class="">
-	                <img src="images/p1.png"  alt=""/>
-	                <h3 class="am-gallery-title">${item.rest_name }</h3>
-	            </a>
-	        </div>
-	    </li>
+<ul style="width: 470px;height: 130px;">
+	
+	
+	<c:forEach  var="item" items="${rest3 }" varStatus="status" >
+		
+    <li>
+        <div class="am-gallery-item" style="border-bottom:1px soild #ff0000;">
+            <a href="GotoStoreinfo?rest_id=${item.rest_id }" class="">
+                <div style="width: 130px;float: left;">
+                    <img src="images/p.png"  style="height:100px;weight:100px;margin-left: 15px;" alt=""/>
+
+                </div>
+                <div style="width: 250px;height:130 ;float: left;padding-left: 20px;border-bottom: 1px solid #999999;">
+                    <div style="height: 50px;width: 200px;font-size: 3rem">${item.rest_name }</div>
+                    <div style="float: left;height:60px;width:100px; "><p style="color: #999999;font-size: 1rem;">销量:350笔</p>
+                        <p style="padding-top: 15px;">地址</p></div>
+                    <div style="float: left;height: 60px;width:90px; padding-top: 30px;">评论（12）</div>
+                </div>
+            </a>
+        </div>
+    </li>
+
+		   
     </c:forEach>
-
+	
 </ul>
 
+
 <div 	align="center"
-        style="background-color: #fafafa; width: 100%; height: 27px;margin-top:13px;margin-bottom: 5px;line-height: 15px;">
+        style="background-color: #fafafa; width: 100%; height: 35px;padding-top:13px;padding-bottom: 5px;line-height: 15px;">
+    
     ----------已经到底了------------
 </div>
 </body>
