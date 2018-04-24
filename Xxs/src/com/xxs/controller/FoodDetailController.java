@@ -51,6 +51,7 @@ public class FoodDetailController extends HttpServlet {
 			RestDao restDao = new RestDaoImpl();
 			Rest rest = restDao.selectRestByid(rest_id);
 			request.setAttribute("rest_name", rest.getRest_name());
+			request.setAttribute("rest_id", rest_id);
 			request.getRequestDispatcher("detail.jsp").forward(request, response);			
 		} catch (SQLException e) {
 			e.printStackTrace();
