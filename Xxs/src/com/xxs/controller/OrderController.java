@@ -134,14 +134,13 @@ public class OrderController extends HttpServlet {
 //		String stu_id = request.getParameter("stu_id");
 		String indent_remk = request.getParameter("indent_remk");
 		String gettime = request.getParameter("gettime");
-		String rest_id = "1";
-		System.out.println(gettime);
-		System.out.println("in addOrder");
+		String rest_id = request.getParameter("rest_id");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 		SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyMMddHH:mm");
 		String newDate = sdf.format(new Date());
 		Date getTime = sdf1.parse(newDate+gettime);
-		Indent indent = new Indent(0L, indent_money, 1, new Integer(food_id), rest_id, stu_id, new Integer(food_num), indent_remk, new Timestamp(new Date().getTime()), new Timestamp(getTime.getTime()));
+		Indent indent = new Indent(indent_money, 1, new Integer(food_id), rest_id, stu_id, new Integer(food_num), indent_remk, new Timestamp(new Date().getTime()), new Timestamp(getTime.getTime()));
+		System.out.println(indent);
 		int insertIndent = indentDao.insertIndent(indent);
 		if(insertIndent == 1){
 			out.write("{\"res\":\"yes\"}");

@@ -36,7 +36,7 @@
             if($(".iDate.full").length>0){
                 $(".iDate.full").datetimepicker({
                     locale: "zh-cn",
-                    format: "YYYY-MM-DD a hh:mm",
+                    format: "YYYY-MM-DD hh:mm",
                     dayViewHeaderFormat: "YYYY年 MMMM"
                 });
             }
@@ -78,18 +78,18 @@
 
     <div style="width: 100%;height:290px;padding: 5px 25px;" >
         <div style="height:275px;width: 100%;float: left;border-radius: 18px;border:1px solid #bebebe;padding: 5px 7px;background-color: #ffdcb9;margin-left: 0px;">
-            <form action="" method="post" id="editForm">
+            <form action="MusicController?op=play" method="post" id="editForm">
                 <ul class="editInfos">
-                    <li><label style="margin-left: 15px;"><font color="#ff0000">* </font>点歌人：<input type="text" name="" required value="" class="ipt" style="height: 32px;width: 177px;border: 1px solid #bebebe;border-radius: 5px;" /></label></li>
-                    <li><label style="margin-left: 15px;"><font color="#ff0000">* </font>歌曲名：<input type="text" name="" required value="" class="ipt" style="height: 32px;width: 177px;border: 1px solid #bebebe;border-radius: 5px;" /></label></li>
+                    <li><label style="margin-left: 15px;"><font color="#ff0000">* </font>点歌人：<input type="text" name="songpeople" required value="" class="ipt" style="height: 32px;width: 177px;border: 1px solid #bebebe;border-radius: 5px;" /></label></li>
+                    <li><label style="margin-left: 15px;"><font color="#ff0000">* </font>歌曲名：<input type="text" name="songname" required value="" class="ipt" style="height: 32px;width: 177px;border: 1px solid #bebebe;border-radius: 5px;" /></label></li>
 
                     <li><label><font color="#ff0000">* </font>播放时间：
                         <div class="iDate full" style="line-height: 50px;">
-                            <input type="text" name="" required value=""  style="margin-top: 0px;border-radius: 8px;"/>
+                            <input type="text" name="songtime" required value=""  style="margin-top: 0px;border-radius: 8px;"/>
                             <button type="button" class="addOn" style="border: 1px solid #bebebe;"></button>
                         </div>
                     </label></li>
-                    <li><label style="margin-left: 22px;"><font color="#ff0000">* </font>留言：<input type="text" name="" required value="" class="ipt" style="height: 32px;width: 177px;border: 1px solid #bebebe;border-radius: 5px;"/></label></li>
+                    <li><label style="margin-left: 22px;"><font color="#ff0000">* </font>留言：<input type="text" name="songmessage" required value="" class="ipt" style="height: 32px;width: 177px;border: 1px solid #bebebe;border-radius: 5px;"/></label></li>
                     <li><input type="submit" value="确认点歌" class="submitBtn" style="margin-top: 15px;"/></li>
                 </ul>
             </form>

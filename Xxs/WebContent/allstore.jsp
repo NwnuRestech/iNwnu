@@ -16,7 +16,10 @@
     <script type="text/javascript" src="js/jquery.min.js" ></script>
     <script type="text/javascript" src="js/amazeui.min.js" ></script>
     <style type="text/css">
-       
+    .part{
+    width: 250px;height:130 ;float: left;padding-left: 20px;border-bottom: 1px solid #999999;
+    }
+       a{color:#337ab7;}
         .paixu-store{ overflow: hidden; background: #fff;}
         .paixu-store li{ width: 40%; float: left; text-align: center;margin-left: 15px; line-height: 40px;}
         .paixu-store li a{ color: #666;}
@@ -46,9 +49,9 @@
     <li style="border-bottom: 2px solid #ff5500;"><a href="">默认楼层排序</a></li>
     <li><a href="">销量</a></li>
 </ul>
+<center><h1>-----一  楼-----</h1></center>
 
----一楼档口---
-<ul style="width: 470px;height: 130px;">
+<ul style="height: 130px;">
 	
 	
 	<c:forEach  var="item" items="${rest1 }" varStatus="status" >
@@ -58,13 +61,13 @@
             <a href="GotoStoreinfo?rest_id=${item.rest_id }" class="">
                 <div style="width: 120px;float: left;">
                     <img src="images/p.png"  style="height:100px;weight:100px;margin-left: 15px;" alt=""/>
-
                 </div>
-                <div style="width: 250px;height:130 ;float: left;padding-left: 20px;border-bottom: 1px solid #999999;">
+                <div class="part">
                     <div style="height: 50px;width: 200px;font-size: 3rem">${item.rest_name }</div>
-                    <div style="float: left;height:60px;width:100px; "><p style="color: #999999;font-size: 1rem;">销量:350笔</p>
-                        <p style="padding-top: 15px;">地址</p></div>
-                    <div style="float: left;height: 60px;width:90px; padding-top: 30px;">评论（12）</div>
+                                        <div style="float: left;height:60px">
+                    <p style="color: #999999;font-size: 2rem;">销量:350笔</p>
+                        <p><font>地址</font> <font style="padding-left: 4em;">评论（12）</font></p>
+                    </div>
                 </div>
             </a>
         </div>
@@ -74,13 +77,10 @@
     </c:forEach>
 	
 </ul>
-
-
-
-
----二楼档口---
-
-<ul style="width: 470px;height: 130px;">
+<br>
+<center><h1>-----二  楼-----</h1></center>
+<div>
+<ul style="height: 130px;">
 	
 	
 	<c:forEach  var="item" items="${rest2 }" varStatus="status" >
@@ -92,11 +92,12 @@
                     <img src="images/p.png"  style="height:100px;weight:100px;margin-left: 15px;" alt=""/>
 
                 </div>
-                <div style="width: 250px;height:130 ;float: left;padding-left: 20px;border-bottom: 1px solid #999999;">
+                <div class="part">
                     <div style="height: 50px;width: 200px;font-size: 3rem">${item.rest_name }</div>
-                    <div style="float: left;height:60px;width:100px; "><p style="color: #999999;font-size: 1rem;">销量:350笔</p>
-                        <p style="padding-top: 15px;">地址</p></div>
-                    <div style="float: left;height: 60px;width:90px; padding-top: 30px;">评论（12）</div>
+                    <div style="float: left;height:60px">
+                    <p style="color: #999999;font-size: 2rem;">销量:350笔</p>
+                        <p><font>地址</font> <font style="padding-left: 4em;">评论（12）</font></p>
+                    </div>
                 </div>
             </a>
         </div>
@@ -106,33 +107,30 @@
     </c:forEach>
 	
 </ul>
+</div>
+<center><h1>-----三  楼-----</h1></center>
 
 
----三楼档口---
-
-<ul style="width: 470px;height: 130px;">
-	
-	
+<ul style="height: 130px;">
 	<c:forEach  var="item" items="${rest3 }" varStatus="status" >
 		
     <li>
         <div class="am-gallery-item" style="border-bottom:1px soild #ff0000;">
             <a href="GotoStoreinfo?rest_id=${item.rest_id }" class="">
-                <div style="width: 130px;float: left;">
+                <div style="width: 120px;float: left;">
                     <img src="images/p.png"  style="height:100px;weight:100px;margin-left: 15px;" alt=""/>
 
                 </div>
-                <div style="width: 250px;height:130 ;float: left;padding-left: 20px;border-bottom: 1px solid #999999;">
+                <div class="part">
                     <div style="height: 50px;width: 200px;font-size: 3rem">${item.rest_name }</div>
-                    <div style="float: left;height:60px;width:100px; "><p style="color: #999999;font-size: 1rem;">销量:350笔</p>
-                        <p style="padding-top: 15px;">地址</p></div>
-                    <div style="float: left;height: 60px;width:90px; padding-top: 30px;">评论（12）</div>
+                    <div style="float: left;height:60px">
+                    <p style="color: #999999;font-size: 2rem;">销量:350笔</p>
+                        <p><font>地址</font> <font style="padding-left: 4em;">评论（12）</font></p>
+                    </div>
                 </div>
             </a>
         </div>
     </li>
-
-		   
     </c:forEach>
 	
 </ul>
@@ -141,7 +139,6 @@
 <div 	align="center"
         style="background-color: #fafafa; width: 100%; height: 35px;padding-top:13px;padding-bottom: 5px;line-height: 15px;">
     
-    ----------已经到底了------------
 </div>
 </body>
 </html>

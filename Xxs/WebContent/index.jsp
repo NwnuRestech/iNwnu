@@ -96,7 +96,7 @@
 		      	<li>
 					<div class="am-gallery-item">
 						<a href="GotoStoreinfo?rest_id=${item.rest_id }" class="">
-							<img src="IndexImg/1.jpg"  alt=""/><!--${item.img_loc }  -->
+							<img src="RestImg/${item.rest_id }.JPG"  alt="${item.rest_name }"/>
 							<h3 class="am-gallery-title">${item.rest_name }</h3>
 						</a>
 					</div>

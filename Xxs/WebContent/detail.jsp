@@ -29,7 +29,8 @@
 					var stu_id=1;
 					var indent_remk=$("#words").val();
 					var gettime = $("#gettime").val();
-					$.post("OrderController?op=addOrder", { "food_num": food_num,"indent_money":indent_money, "food_id":food_id,"stu_id":stu_id,"indent_remk":indent_remk,"gettime":gettime},
+					var rest_id = ${rest_id };
+					$.post("OrderController?op=addOrder", {"rest_id":rest_id,  "food_num": food_num,"indent_money":indent_money, "food_id":food_id,"stu_id":stu_id,"indent_remk":indent_remk,"gettime":gettime},
 						function (data) {
 							var res = JSON.stringify(data);
 						if(res.indexOf("login") >=0){
@@ -176,10 +177,10 @@
 			<li><a style="margin-left: 30px;">数量<span id="sub" >
 						<img alt="" src="images/down.png" style="width: 15px;height: 80%;margin-top: 18px;">
 					</span>
-				<input  type="text" name="amount" value="0" id="amountInput"
+				<input  type="text" name="amount" value="1" id="amountInput"
 						style="display: inline; width: 20px;height: 20px;margin-top: -3px;text-align: center;">
 				<span id="add" >
-						<img alt="" src="images/add.png" style="width: 15px;height: 80%;margin-top: 18px;">
+						<img alt="" src="css/add.png" style="width: 15px;height: 80%;margin-top: 18px;">
 			  </span></a></li>
 			<li ><a href="" id="buy" class="current">立即购买</a></li>
 
