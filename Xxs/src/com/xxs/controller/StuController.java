@@ -1,16 +1,20 @@
 package com.xxs.controller;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletInputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.alibaba.fastjson.JSON;
 import com.xxs.bean.Img;
+import com.xxs.bean.ReponseData;
 import com.xxs.bean.Rest;
 import com.xxs.bean.Stu;
 import com.xxs.dao.RestDao;
@@ -65,7 +69,6 @@ public class StuController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}else if(type.equals("2") && id != null){
-		
 			try {
 				Rest rest = restDao.selectRest(id);
 				Img img = restDao.selectImgByRest_id(id);
@@ -84,23 +87,39 @@ public class StuController extends HttpServlet {
 
 	private void NicknameExist(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		System.out.println("nicknameExist");
-		String nickname = request.getParameter("newNickname");//获取不到?
-		System.out.println("newNickname:"+nickname);
+		String newnickname = request.getParameter("newNickname");
+		System.out.println("newnickname:"+newnickname);
+//		ServletInputStream is = request.getInputStream();
+//		String param = inputStream2String(is);
+//		System.out.println("param"+param);
 		PrintWriter out = response.getWriter();
+		ReponseData rep = new ReponseData();
+		String jsonString = ""; 
 		try {
-			Stu stu = stuDao.selectStuByNickname(nickname);
-			System.out.println("stu:"+stu);
+			Stu stu = stuDao.selectStuByNickname(newnickname);
 			if (stu != null) {
-				out.write("{\"res\":\"exists\"}");
+				jsonString = JSON.toJSONString(stu);
+//				System.out.println("jsonString:"+jsonString);
+				rep.setData(jsonString);
+				rep.setStatus(1);
 			} else {
-				out.write("{\"res\":\"not\"}");
+//				out.write("{\"res\":\"not\"}");
+				rep.setStatus(0);
 			}
+			out.write(JSON.toJSONString(rep));
 			out.flush();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
+	}
+	
+	public static String inputStream2String(InputStream in) throws IOException {
+		StringBuffer out = new StringBuffer();
+		byte[] b = new byte[4096];
+		for (int n; (n = in.read(b)) != -1;) {
+			out.append(new String(b, 0, n));
+		}
+		return out.toString();
 	}
 
 	private void changeStuInfo(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -138,7 +157,7 @@ public class StuController extends HttpServlet {
 				if("".equals(newDept)){
 					newDept = stu.getStu_dept();
 				}
-				int res = stuDao.updateStuInfo(newNickname, newTel, newDorm, newPassword, newDept, stu_id);
+				int res = stuDao.updateStuInfo(newNickname, newTel, newPassword, newDorm, newDept, stu_id);
 				if(res == 1){
 					request.getRequestDispatcher("GotoMember").forward(request, response);
 				}else{

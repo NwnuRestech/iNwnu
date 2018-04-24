@@ -10,8 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.xxs.bean.Rest;
 import com.xxs.bean.Stu;
+import com.xxs.dao.RestDao;
 import com.xxs.dao.StuDao;
+import com.xxs.dao.impl.RestDaoImpl;
 import com.xxs.dao.impl.StuDaoImpl;
 
 @WebServlet("/GotoMember")
@@ -35,11 +38,16 @@ public class GotoMember extends HttpServlet {
 		}
 		String id = (String) request.getSession().getAttribute("id");
 		StuDao stuDao = new StuDaoImpl();
+		RestDao restDao = new RestDaoImpl();
 		try {
-			if(type.equals("1")) {
+			if(type.equals("1")) {//Ñ§Éú
 				Stu stu = stuDao.selectStuByStu_id(id);
 				request.setAttribute("stu_nickname", stu.getStu_nickname());
 				request.getRequestDispatcher("member.jsp").forward(request, response);
+			}else if(type.equals("2")){//ÉÌÆÌ
+				Rest rest = restDao.selectRest(id);
+				request.setAttribute("rest_name", rest.getRest_name());
+				request.getRequestDispatcher("member_rest.jsp").forward(request, response);
 			}
 			} catch (SQLException e) {
 			e.printStackTrace();

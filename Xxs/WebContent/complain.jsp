@@ -35,7 +35,7 @@
             if($(".iDate.full").length>0){
                 $(".iDate.full").datetimepicker({
                     locale: "zh-cn",
-                    format: "YYYY-MM-DD a hh:mm",
+                    format: "YYYY-MM-DD hh:mm",
                     dayViewHeaderFormat: "YYYY年 MMMM"
                 });
             }
@@ -47,6 +47,24 @@
                 });
             }
         })
+    </script>
+    <script type="text/javascript">
+	$(function(){
+		$("#unameExists").hide();//将提示隐藏起来
+	 	$("#complain_rest").blur(function(){//当失去焦点时，触发这个函数
+			var restname = $("#complain_rest").val();//获取输入框内的值
+			$.post("ComplaintController?op=checkrest", {//触发
+				"restname" : restname
+			}, function(data) {
+				var res = JSON.stringify(data);//从一个json对象中解析出字符串
+				if (res.indexOf("not") >= 0)//如果字符串中含有not,显示该商铺不存在
+					//根据服务器返回的结果，在页面中给用户以提示
+					$("#unameExists").hide();
+				else
+					$("#unameExists").show();
+			}, "json");
+		})
+	});
     </script>
 
 
@@ -77,26 +95,23 @@
 
     <div style="width: 100%;height:290px;padding: 5px 25px;" >
         <div style="height:275px;width: 100%;float: left;border-radius: 18px;border:1px solid #bebebe;padding: 5px 18px;background-color: #ffdcb9;margin-left: 0px;">
-            <form action="" method="post" id="editForm">
+            <form action="ComplaintController?op=complaint" method="post" id="editForm">
                 <ul class="editInfos">
                     
-                    <li><label style="margin-left: 15px;"><font color="#ff0000">* </font>投诉事件：<input type="text" name="" required value="" class="ipt" style="height: 32px;width: 177px;border: 1px solid #bebebe;border-radius: 5px;" /></label></li>
-
+                    <li><label style="margin-left: 15px;"><font color="#ff0000">* </font>投诉商铺：<input id = "complain_rest" type="text" name="restname" required value="" class="ipt" style="height: 32px;width: 177px;border: 1px solid #bebebe;border-radius: 5px;" /></label><span id="unameExists"
+					style="color: red; font-size: 8px;">该商铺不存在</span></li></li>
+<li><label style="margin-left: 22px;"><font color="#ff0000">* </font>投诉事件：<input type="text" name="complain_event" required value="" class="ipt" style="height: 32px;width: 177px;border: 1px solid #bebebe;border-radius: 5px;margin-right: -2px;"/></label></li>
                     <li><label><font color="#ff0000">*</font>投诉时间：
                         <div class="iDate full" style="line-height: 60px;margin-left: 18px;">
-                            <input type="text" name="" required value=""  style="margin-top: 0px;border-radius: 8px;"/>
+                            <input type="text" name="complain_time" required value=""  style="margin-top: 0px;border-radius: 8px;"/>
                             <button type="button" class="addOn" style="border: 1px solid #bebebe;"></button>
                         </div>
                     </label></li>
-                    <li><label style="margin-left: 22px;"><font color="#ff0000">* </font>投诉留言：<input type="text" name="" required value="" class="ipt" style="height: 32px;width: 177px;border: 1px solid #bebebe;border-radius: 5px;margin-right: -2px;"/></label></li>
+                    
                     <li><input type="submit" value="确认投诉" class="submitBtn" style="margin-top: 15px;"/></li>
                 </ul>
             </form>
         </div>
-
-
-
-
     </div>
 
 </div>

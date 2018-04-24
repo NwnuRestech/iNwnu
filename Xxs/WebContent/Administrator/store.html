@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>music</title>
+	<script src="easyui1.5.2/jquery.min.js" type="text/javascript"></script>
+	<script src="easyui1.5.2/jquery.easyui.min.js" type="text/javascript"></script>
+	<link href="easyui1.5.2/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+	<link href="easyui1.5.2/themes/icon.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">
+		var url;
+		function newUser(){
+			$('#dlg').dialog('open').dialog('setTitle','New User');
+			$('#fm').form('clear');
+			url = 'save_user.php';
+		}
+		function editUser(){
+			var row = $('#dg').datagrid('getSelected');
+			if (row){
+				$('#dlg').dialog('open').dialog('setTitle','Edit User');
+				$('#fm').form('load',row);
+				url = 'update_user.php?id='+row.id;
+			}
+		}
+		function saveUser(){
+			$('#fm').form('submit',{
+				url: url,
+				onSubmit: function(){
+					return $(this).form('validate');
+				},
+				success: function(result){
+					var result = eval('('+result+')');
+					if (result.success){
+						$('#dlg').dialog('close');		// close the dialog
+						$('#dg').datagrid('reload');	// reload the user data
+					} else {
+						$.messager.show({
+							title: 'Error',
+							msg: result.msg
+						});
+					}
+				}
+			});
+		}
+		function removeUser(){
+			var row = $('#dg').datagrid('getSelected');
+			if (row){
+				$.messager.confirm('Confirm','Are you sure you want to remove this user?',function(r){
+					if (r){
+						$.post('remove_user.php',{id:row.id},function(result){
+							if (result.success){
+								$('#dg').datagrid('reload');	// reload the user data
+							} else {
+								$.messager.show({	// show error message
+									title: 'Error',
+									msg: result.msg
+								});
+							}
+						},'json');
+					}
+				});
+			}
+		}
+	</script>
+	
+	<link rel="stylesheet" type="text/css" href="easyui1.5.2/demo/demo.css">
+	<script type="text/javascript" src="easyui1.5.2/locale/easyui-lang-zh_CN.js"></script>
+	<script>
+		var url;
+		function deleteUser(){
+			var row=$('#dg').datagrid('getSelected');
+			if(row){
+				$.messager.confirm("系统提示","您确定要删除这条记录吗?",function(r){
+					if(r){
+						$.post('userDelete',{delId:row.id},function(result){
+							if(result.success){
+								$.messager.alert("系统提示","已成功删除这条记录!");
+								$("#dg").datagrid("reload");
+							}else{
+								$.messager.alert("系统提示",result.errorMsg);
+							}
+						},'json');
+					}
+				});
+			}
+		}
+		
+		function newUser(){
+			$("#dlg").dialog('open').dialog('setTitle','添加用户');
+			$('#fm').form('clear');
+			url='userSave';
+		}
+		
+		
+		function editUser(){
+			var row=$('#dg').datagrid('getSelected');
+			if(row){
+				$("#dlg").dialog('open').dialog('setTitle','编辑用户');
+				$('#fm').form('load',row);
+				url='userSave?id='+row.id;
+			}
+		}
+		
+		
+		function saveUser(){
+			$('#fm').form('submit',{
+				url:url,
+				onSubmit:function(){
+					return $(this).form('validate');
+				},
+				success:function(result){
+					var result=eval('('+result+')');
+					if(result.errorMsg){
+						$.messager.alert("系统提示",result.errorMsg);
+						return;
+					}else{
+						$.messager.alert("系统提示","保存成功");
+						$('#dlg').dialog('close');
+						$("#dg").datagrid("reload");
+					}
+				}
+			});
+		}
+		
+	</script>
+</head>
+<body>
+	<table id="dg" title="用户管理" class="easyui-datagrid" style="width:1000px;height:365px"
+            url="get_users.php"
+            toolbar="#toolbar" pagination="true"
+            rownumbers="true" fitColumns="true" singleSelect="true">
+        <thead>
+            <tr>
+            	<th field="stu_id" width="30" hidden="true">编号</th>
+                <th field="stu_name" width="30">用户</th>
+		<th field="stu_nickname" width="30">昵称</th>
+                <th field="stu_tel" width="30">电话</th>
+                <th field="stu_grade" width="30">年级</th>
+		<th field="stu_credit" width="30">credit</th>
+		<th field="stu_dorm" width="30">宿舍</th>
+		<th field="stu_dept" width="30">dept</th>
+		<th field="stu_money" width="30">花销</th>
+            </tr>
+        </thead>
+    </table>
+    <div id="toolbar">
+        
+  
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">添加用户</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">编辑用户</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="deleteUser()">删除用户</a>
+    
+	<a style="padding-left:20px;">Date From: <input class="easyui-datebox" style="width:80px">
+			To: <input class="easyui-datebox" style="width:80px">
+			用户: 
+			<input class="easyui-combobox" style="width:100px"
+					url="data/combobox_data.json"
+					valueField="id" textField="text">
+			<a href="#" class="easyui-linkbutton" iconCls="icon-search">查找</a>
+	</a>
+    </div>
+
+<div id="dlg" class="easyui-dialog" style="width:400px;height:250px;padding:10px 20px"
+            closed="true" buttons="#dlg-buttons">
+        <form id="fm" method="post">
+        	<table cellspacing="10px;">
+        		<tr>
+        			<td>姓名：</td>
+        			<td><input name="name" class="easyui-validatebox" required="true" style="width: 200px;"></td>
+        		</tr>
+        		<tr>
+        			<td>联系电话：</td>
+        			<td><input name="phone" class="easyui-validatebox" required="true" style="width: 200px;"></td>
+        		</tr>
+        		<tr>
+        			<td>Email：</td>
+        			<td><input name="email" class="easyui-validatebox" validType="email" required="true" style="width: 200px;"></td>
+        		</tr>
+        		<tr>
+        			<td>QQ：</td>
+        			<td><input name="qq" class="easyui-validatebox" required="true" style="width: 200px;"></td>
+        		</tr>
+        	</table>
+        </form>
+	</div>
+    
+	<div id="dlg-buttons">
+		<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveUser()">保存</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">关闭</a>
+	</div>
+	
+	
+</body>
+</html>
+

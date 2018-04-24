@@ -62,7 +62,6 @@
 		                <span class="am-navbar-label">我的</span>
 		            </a>
 		          </li>
-		   
 		      </ul>
 		</div>
 
