@@ -28,6 +28,7 @@ public class RestDaoImpl implements RestDao {
 		Rest query = qr.query("select *from rest where rest_id = ? and rest_password = ?", new BeanHandler<Rest>(Rest.class), rest_id, rest_password);
 		return query;
 	}
+	
 	@Override
 	public Rest selectRestByid(String rest_id) throws SQLException {
 		QueryRunner qr = new QueryRunner(JDBCTools.getDataSource());
@@ -50,8 +51,10 @@ public class RestDaoImpl implements RestDao {
 		QueryRunner qr = new QueryRunner(JDBCTools.getDataSource());
 		return qr.query("select * from rest where rest_loc = ?", new BeanListHandler<Rest>(Rest.class),rest_loc);
 	}
+	
 //	public static void main(String[] args) throws SQLException {
 //		List<Rest> selectRestByLoc = new RestDaoImpl().selectRestByLoc(3);
+//		System.out.println(selectRestByLoc.size());
 //		for (Rest rest : selectRestByLoc) {
 //			System.out.println(rest);
 //		}

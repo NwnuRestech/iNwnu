@@ -53,6 +53,15 @@ public class Food {
 		this.food_introduce = food_introduce;
 		this.food_type = food_type;
 	}
+	
+	public Food(String food_name, String food_restid, String food_money, String food_introduce, int food_type) {
+		super();
+		this.food_name = food_name;
+		this.food_restid = food_restid;
+		this.food_money = food_money;
+		this.food_introduce = food_introduce;
+		this.food_type = food_type;
+	}
 	@Override
 	public String toString() {
 		return "Food [food_id=" + food_id + ", food_name=" + food_name + ", food_restid=" + food_restid

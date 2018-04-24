@@ -25,14 +25,15 @@
 			</div>
 
 		</div>
+
 		<ul class="member-nav">
-			<li><a href="RestController?op=selectAllTypes"><i class="am-icon-bell-o"></i><span>添加菜品</span></a></li>
-			<li><a href="RestController?op=selectMenu"><i class="am-icon-cart-arrow-down"></i><span>菜单</span></a></li>
-			<li><a href="storeOrder.html"><i class="am-icon-newspaper-o"></i><span>商铺评价</span></a></li>
-			<li><a href=""><i class="am-icon-dollar"></i><span>我的账单</a></li>
+			<li><div style="float: left;margin-top: 15px;"><i class="am-icon-bell-o"></i></div><a href="RestController?op=selectAllTypes"><span>添加菜品</span></a></li>
+			<li><div style="float: left;margin-top: 15px;"><i class="am-icon-cart-arrow-down"></i></div><a href="RestController?op=selectMenu"><span>菜单</span></a></li>
+			<li><div style="float: left;margin-top: 15px;"><i class="am-icon-newspaper-o"></i></div><a href="GotoStoreinfo?rest_id=${id }"><span>商铺评价</span></a></li>
+			<li><div style="float: left;margin-top: 15px;"><i class="am-icon-dollar"></i></div><a href=""><span>我的账单</a></li>
 		</ul>
 		<ul class="member-nav mt">
-			<li><a href=""><i class="am-icon-phone"></i>联系我们</a></li>
+			<li><div style="float: left;margin-top: 15px;"><i class="am-icon-phone"></i></div><a href="">联系我们</a></li>
 		</ul>
 		<div class="h50"></div>
 		<div data-am-widget="navbar" class="am-navbar am-cf am-navbar-default footer "  id="">

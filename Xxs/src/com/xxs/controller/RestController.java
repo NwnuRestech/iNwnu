@@ -47,7 +47,7 @@ public class RestController extends HttpServlet {
 		}
 	}
 	private void updateFoodInfo(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String food_id1 = request.getParameter("foodid");
+		String food_id1 = request.getParameter("food_id");
 		int food_id = Integer.parseInt(food_id1);
 		PrintWriter out = response.getWriter();
 	}
