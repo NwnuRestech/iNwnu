@@ -94,6 +94,20 @@ public class Indent {
 		this.indent_foodtime = indent_foodtime;
 		this.get_foodtime = get_foodtime;
 	}
+	
+	public Indent(String indent_money, int indent_stat, int food_id, String rest_id, String stu_id, int food_num,
+			String indent_remk, Timestamp indent_foodtime, Timestamp get_foodtime) {
+		super();
+		this.indent_money = indent_money;
+		this.indent_stat = indent_stat;
+		this.food_id = food_id;
+		this.rest_id = rest_id;
+		this.stu_id = stu_id;
+		this.food_num = food_num;
+		this.indent_remk = indent_remk;
+		this.indent_foodtime = indent_foodtime;
+		this.get_foodtime = get_foodtime;
+	}
 	public Indent() {
 		super();
 	}

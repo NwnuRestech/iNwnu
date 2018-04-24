@@ -29,14 +29,16 @@ public class FoodDaoImpl implements FoodDao {
 		return qr.query("select *from food where food_restid = ?", new BeanListHandler<Food>(Food.class), restId);
 	}
 	@Override
-	public int updateFood(int food_id) throws SQLException {
+	public int updateFood(int food_id,String newMoney) throws SQLException {
+		QueryRunner qr = new QueryRunner(JDBCTools.getDataSource());
+		
 		return 0;
 	}
 	@Override
 	public int deleteFood(int food_id) throws SQLException{
 		//TODO É¾³ýÊ³Îï
 		QueryRunner qr = new QueryRunner(JDBCTools.getDataSource());
-		return qr.update("delect from food where food_id = ?",food_id);
+		return qr.update("delete from food where food_id = ?",food_id);
 	}
 	@Override
 	public Food selectFoodByFoodId(int food_id) throws SQLException {
@@ -73,5 +75,18 @@ public class FoodDaoImpl implements FoodDao {
 		QueryRunner qr = new QueryRunner(JDBCTools.getDataSource());
 		return qr.query("select *from food where food_restid = ? and food_type = ?", new BeanListHandler<Food>(Food.class), rest_id, type);
 	}
-	
+	@Override
+	public List<Food> slectMenuByRest_id(String rest_id) throws SQLException {
+		QueryRunner qr = new QueryRunner(JDBCTools.getDataSource());
+		List<Food> menu = qr.query("select * from food where food_restid = ?", new BeanListHandler<Food>(Food.class),rest_id);
+		return menu;
+	}
+	@Override
+	public List<Food> selectFoodsWithPage(int page, int rows) throws SQLException {
+		QueryRunner qr = new QueryRunner(JDBCTools.getDataSource());
+		String sql = "select * from food where  limit ?,?";
+		List<Food> query = qr.query(sql, new BeanListHandler<Food>(Food.class),(page-1)*rows,rows);
+		return query;
+	}
+
 }

@@ -53,23 +53,26 @@
             reader.readAsDataURL(file);
         }
     </script>
- 	<script type="text/javascript">
-		$(function() {
-			$("#nicknameExists").hide();
-	 		$("#newName").blur(function() {
-				var newName = $("#newName").val();
-				$.post("StuController?op=StunicknameExist", {
-					"newName" : newName
-				}, function(data) {
-					var res = JSON.stringify(data);//将json数组解析为字符串
-					if (res.indexOf("exists") >= 0)
-						//根据服务器返回的结果，在页面中给用户以提示
-						$("#nicknameExists").show();
-					else
-						$("#nicknameExists").hide();
-				}, "json");
-			})
-		}); 
+	<script type="text/javascript">
+	$(function () {
+		$("#nicknameExists").hide();
+		$("#newName").on("blur",function(){
+			var newname = $("#newName").serialize();
+			$.ajax({
+	            type: 'post', // 提交方式 get/post
+	            url: 'StuController?op=StunicknameExist', // 需要提交的 url
+	            dataType:"json",
+	            data: newname,//传递给后台的数据
+	            success: function(res1) { // data 保存提交后返回的数据，一般为 json 数据
+	                if(res1.status == 1){
+	                	$("#nicknameExists").show();
+	                }else{
+	                	$("#nicknameExists").hide();
+	                }
+	            },
+	        });
+		});
+	});
 	</script>
 
 
@@ -77,7 +80,7 @@
 <body>
 <header data-am-widget="header" class="am-header am-header-default header">
     <div class="am-header-left am-header-nav">
-        <a href="member.jsp" class="">
+        <a href="#left-link" class="">
             <i class="am-header-icon am-icon-angle-left"></i>
         </a>
     </div>

@@ -1,6 +1,7 @@
 package com.xxs.dao.impl;
 
 
+import java.util.Date;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -10,8 +11,7 @@ import java.sql.SQLException;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
-
-
+import java.sql.Timestamp;
 import com.xxs.bean.Indent;
 import com.xxs.dao.IndentDao;
 import com.xxs.utils.JDBCTools;
@@ -25,7 +25,13 @@ public class IndentDaoImpl implements IndentDao {
 		Object[] params = {null,indent.getIndent_money(), indent.getIndent_stat(), indent.getFood_id(),indent.getRest_id(),indent.getStu_id(),indent.getFood_num(),indent.getIndent_remk(),indent.getIndent_foodtime(), indent.getGet_foodtime()};
 		return queryRunner.update("insert into indent values(?,?,?,?,?,?,?,?,?,?)", params);
 	}
-
+	
+	public static void main(String[] args) throws SQLException {
+		Indent indent = new Indent("1", 1, 1002, "102", "201671020227", 1001, "q", new Timestamp(new Date().getTime()),new Timestamp(new Date().getTime()));
+		int insertIndent = new IndentDaoImpl().insertIndent(indent);
+		System.out.println(insertIndent);
+	}
+	
 	@Override
 	public int updateIndent4(Long indent_id) throws SQLException {
 		QueryRunner qr = new QueryRunner(ds);
@@ -96,11 +102,6 @@ public class IndentDaoImpl implements IndentDao {
 	public List<Indent> StuSelectAllindents(String stu_id) throws SQLException {
 		QueryRunner qr = new QueryRunner(ds);
 		return qr.query("select * from indent where stu_id = ? order by indent_foodtime desc", new BeanListHandler<Indent>(Indent.class),stu_id);
-	}
-	public static void main(String[] args) throws SQLException {
-		IndentDaoImpl indentDao = new IndentDaoImpl();
-		List<Indent> stuSelectAllindents = indentDao.StuSelectIndent_StatIs2and3("1");
-		System.out.println(stuSelectAllindents);
 	}
 
 	@Override

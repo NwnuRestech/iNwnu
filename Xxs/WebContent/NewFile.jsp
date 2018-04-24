@@ -9,8 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="loginOrRegist.jsp">登录注册</a>
-<a href="FoodDetailController?food_id=4">点餐</a>
-<a href="OrderController?op=gotoOrder">我的订单</a>
+${stuSelectIndent_StatIs1 }
+${stuIndent1 }
 </body>
 </html>
