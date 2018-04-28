@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -181,6 +181,7 @@
         <div style="height: 100%;width: 76%;float: left;">
             <div style="height: 63%;width: 100%;text-align: center;font-size: 2rem;line-height: 56px;padding-top: 12px;" align="center">
     ${rest.rest_name }
+		<a style="font-size:1.1rem;color:#e0e0e0;margin-left:10px;">添加到收藏</a>
             </div>
             <div style="height: 30%;width: 100%；text-align: left;font-size: 1.5rem;line-height: 30px;padding-left: 20px;">
                 公告：棒棒哒！
