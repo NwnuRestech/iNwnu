@@ -1,9 +1,18 @@
 package com.xxs.dao.impl;
 
 import java.sql.SQLException;
+<<<<<<< HEAD
 
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
+=======
+import java.util.List;
+
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
+>>>>>>> djk
 
 import com.xxs.bean.Complaint;
 import com.xxs.bean.Rest;
@@ -41,4 +50,35 @@ public class ComplaintDaoImpl implements ComplaintDao {
 		return stu.getStu_name();
 	}
 
+<<<<<<< HEAD
+=======
+	@Override
+	public List<Complaint> selectAllComplaints() throws SQLException {
+		QueryRunner queryRunner = new QueryRunner(JDBCTools.getDataSource());
+		List<Complaint> allComplaints = queryRunner.query("select * from complaints where result = ?", new BeanListHandler<Complaint>(Complaint.class),"0");
+		return allComplaints;
+	}
+
+	@Override
+	public List<Complaint> selectAllComplaintsWithPage(int page, int rows) throws SQLException {
+		QueryRunner queryRunner = new QueryRunner(JDBCTools.getDataSource());
+		List<Complaint> allComs = queryRunner.query("select * from complaints where result = ? limit ?,?", new BeanListHandler<Complaint>(Complaint.class),"0",(page-1)*rows,rows);
+		return allComs;
+	}
+
+	@Override
+	public long selectCount() throws SQLException {
+		QueryRunner queryRunner = new QueryRunner(JDBCTools.getDataSource());
+		long len = (long) queryRunner.query("select count(*) from complaints where result = ?", new ScalarHandler(),"0");
+		return len;
+	}
+
+	@Override
+	public List<Complaint> selectAllComsIs0(String stu_id) throws SQLException {
+		QueryRunner queryRunner = new QueryRunner(JDBCTools.getDataSource());
+		List<Complaint> allcoms = queryRunner.query("select * from complaints where stu_id = ? and result = ?", new BeanListHandler<Complaint>(Complaint.class),stu_id,"0");
+		return allcoms;
+	}
+
+>>>>>>> djk
 }

@@ -80,7 +80,11 @@
         <div style="height:275px;width: 100%;float: left;border-radius: 18px;border:1px solid #bebebe;padding: 5px 7px;background-color: #ffdcb9;margin-left: 0px;">
             <form action="MusicController?op=play" method="post" id="editForm">
                 <ul class="editInfos">
+<<<<<<< HEAD
                     <li><label style="margin-left: 15px;"><font color="#ff0000">* </font>点歌人：<input type="text" name="songpeople" required value="" class="ipt" style="height: 32px;width: 177px;border: 1px solid #bebebe;border-radius: 5px;" /></label></li>
+=======
+                    <li><label style="margin-left: 15px;"><font color="#ff0000">* </font>给她点的歌：<input type="text" name="songpeople" required value="" class="ipt" style="height: 32px;width: 177px;border: 1px solid #bebebe;border-radius: 5px;" /></label></li>
+>>>>>>> djk
                     <li><label style="margin-left: 15px;"><font color="#ff0000">* </font>歌曲名：<input type="text" name="songname" required value="" class="ipt" style="height: 32px;width: 177px;border: 1px solid #bebebe;border-radius: 5px;" /></label></li>
 
                     <li><label><font color="#ff0000">* </font>播放时间：

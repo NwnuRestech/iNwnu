@@ -27,6 +27,11 @@
 		</div>
 		<ul class="member-nav">
 			<li><div style="float: left;margin-top: 15px;"><i class="am-icon-bell-o"></i></div><a href="IndexController"><span>系统通知</span></a></li>
+<<<<<<< HEAD
+=======
+			<li><div style="float: left;margin-top: 15px;"><i class="am-icon-cart-arrow-down"></i></div><a href="ComplaintController?op=selectMycom"><span>投诉</span></a></li>
+			<li><div style="float: left;margin-top: 15px;"><i class="am-icon-cart-arrow-down"></i></div><a href="MusicController?op=selectMysongIs0"><span>点歌</span></a></li>
+>>>>>>> djk
 			<li><div style="float: left;margin-top: 15px;"><i class="am-icon-cart-arrow-down"></i></div><a href=""><span>饮食分析</span></a></li>
 			<li><div style="float: left;margin-top: 15px;"><i class="am-icon-newspaper-o"></i></div><a href="storeOrder.html"><span>我的评价</span></a></li>
 			<li><div style="float: left;margin-top: 15px;"><i class="am-icon-cc-mastercard"></i></div><a href="yhq.html"><span>优惠券</span></a></li>
