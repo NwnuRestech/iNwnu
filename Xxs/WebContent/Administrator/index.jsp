@@ -28,7 +28,7 @@
 
 
 
-<title>ϵͳ��ҳ</title>
+<title>Index</title>
 </head>
 
 <body class="easyui-layout"  >
@@ -36,7 +36,7 @@
        <div region="north" border="true" split="true" style="overflow: hidden; height: 80px;">
           <table cellpadding=0 cellspacing=0 border=0 height=100% width=100%>
               <tr height=35px>
-                <td width=50% font-size=2rem>西小食管理系统/td>
+                <td width=50% font-size=2rem>西小食管理系统</td>
                 <td width=50% align="right">  欢迎您！&nbsp;|&nbsp; xx &nbsp;| &nbsp;修改密码 &nbsp;|&nbsp;退出系统&nbsp;&nbsp;&nbsp;&nbsp;</td>
               </tr>
           </table>
@@ -51,9 +51,8 @@
 		   </div>
                    <div title="档口管理" data-options="iconCls:'icon-folder',selected:true" style="padding:10px;"></div>
                    <div title="其他" data-options="iconCls:'icon-folder',selected:true" style="padding:10px;">
-			<a href="#" class="easyui-linkbutton"  style="padding:1px 55px;"  onclick="addTab('投诉管理','complain.html')">投诉管理</a>
-		   
-			<a href="#" class="easyui-linkbutton"  style="padding:1px 55px;"  onclick="addTab('点歌管理','music.html')">点歌管理</a>
+			<a href="#" class="easyui-linkbutton"  style="padding:1px 55px;"  onclick="addTab('投诉管理','MyComplaints.jsp')">投诉管理</a>
+			<a href="#" class="easyui-linkbutton"  style="padding:1px 55px;" onclick="addTab('音乐管理','MySongs.jsp')">点歌管理</a>
 		   </div>
                    
            </div>
