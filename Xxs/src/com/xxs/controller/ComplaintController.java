@@ -6,6 +6,14 @@ import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+import java.util.ArrayList;
+import java.util.List;
+>>>>>>> djk
+>>>>>>> qy
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +21,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+>>>>>>> djk
+>>>>>>> qy
 import com.xxs.bean.Complaint;
 import com.xxs.bean.Rest;
 import com.xxs.dao.ComplaintDao;
@@ -39,6 +55,21 @@ public class ComplaintController extends HttpServlet {
 		case "checkrest"://查询被投诉商铺rest
 			checkrest(request,response);
 			break;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+		case "selectAllComplaints":
+			selectAllComplaints(request,response);
+			break;
+		case "selectAllComsWithPage":
+			selectAllComsWithPage(request,response);
+			break;
+		case "selectMycom":
+			selectMycom(request,response);
+			break;
+>>>>>>> djk
+>>>>>>> qy
 		default:
 			break;
 		}
@@ -46,6 +77,65 @@ public class ComplaintController extends HttpServlet {
 	
 	}
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+	private void selectMycom(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String stu_id = (String) request.getSession().getAttribute("id");
+		List restnames = new ArrayList<>();
+		String rest_name = "";
+		try {
+			List<Complaint> allcoms = complaintDao.selectAllComsIs0(stu_id);
+			System.out.println("allcoms:"+allcoms);
+			for(int i=0;i<allcoms.size();i++){
+				rest_name=complaintDao.selectRestnameByrestId(allcoms.get(i).getRest_id());
+				restnames.add(rest_name);
+			}
+			System.out.println("restnames:"+restnames);
+			request.setAttribute("restnames", restnames);
+			request.setAttribute("allcoms", allcoms);
+			request.getRequestDispatcher("MyComplaints.jsp").forward(request, response);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	private void selectAllComsWithPage(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        System.out.println("selectAllComsWithPage");
+		String pageStr = request.getParameter("page");
+        System.out.println(pageStr);
+        String rowsStr = request.getParameter("rows");
+        int page = Integer.parseInt(pageStr);
+        int rows = Integer.parseInt(rowsStr);
+        PrintWriter out = response.getWriter();
+        try {
+			List<Complaint> allComs = complaintDao.selectAllComplaintsWithPage(page, rows);
+			Object json = JSON.toJSON(allComs);
+            System.out.println(json);
+            JSONObject res = new JSONObject();
+			res.put("total", complaintDao.selectCount());
+			res.put("rows", json);
+			out.write(res.toJSONString());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	private void selectAllComplaints(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try {
+			List<Complaint> allComs = complaintDao.selectAllComplaints();
+			request.setAttribute("allComs", allComs);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		request.getRequestDispatcher("Administrator/complain.jsp").forward(request, response);
+	}
+
+>>>>>>> djk
+>>>>>>> qy
 	private void checkrest(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String restname = request.getParameter("restname");//获取被投诉的商铺
 		System.out.println("restname1:"+restname);
