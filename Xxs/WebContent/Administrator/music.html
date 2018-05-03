@@ -7,8 +7,6 @@
 	<script src="easyui1.5.2/jquery.easyui.min.js" type="text/javascript"></script>
 	<link href="easyui1.5.2/themes/default/easyui.css" rel="stylesheet" type="text/css" />
 	<link href="easyui1.5.2/themes/icon.css" rel="stylesheet" type="text/css" />
-
-	
 	<link rel="stylesheet" type="text/css" href="easyui1.5.2/demo/demo.css">
 	<script type="text/javascript" src="easyui1.5.2/locale/easyui-lang-zh_CN.js"></script>
 	<script>
@@ -30,15 +28,26 @@
 				});
 			}
 		}
-		
-		
-		}
-		
+	</script>
+	<script>
+    $(function () {
+        $("#dg").datagrid({
+            url: '../MusicController?op=selectAllSongsIs0',
+            rownumbers: true,
+            fitColumns: true,
+            singleSelect: true,
+            pagination: true,
+            toolbar: '#tb',
+            fitColumns: true,
+            pageSize: 17,//每页显示的记录条数，默认为10
+            pageList: [17, 34, 51],//可以设置每页记录条数的列表
+        })
+    });
+
 	</script>
 </head>
 <body>
 	<table id="dg" title="点歌管理" class="easyui-datagrid" style="width:1000px;height:365px"
-            url="get_music.php"
             toolbar="#toolbar" pagination="true"
             rownumbers="true" fitColumns="true" singleSelect="true">
         <thead>
@@ -46,14 +55,21 @@
             	<th field="id" width="30" hidden="true">编号</th>
                 <th field="user" width="30">用户</th>
                 <th field="name" width="30">点歌人</th>
-		<th field="music" width="30">歌名</th>
+				<th field="music" width="30">歌名</th>
                 <th field="time" width="30">时间</th>
                 <th field="word" width="80">留言</th>
-		<th field="status" width="30">状态</th>
-		<th field="act" width="30">操作</th>
-            </tr>
+				<th field="status" width="30">状态</th>
+				<th field="act" width="30">操作</th>
+            </tr>          
         </thead>
     </table>
+    <div id="tb" style="padding:2px 5px;float: right;">
+		<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true"></a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true"></a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true"></a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-cut" plain="true"></a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true"></a>
+	</div>
     <div id="toolbar">
         
   
