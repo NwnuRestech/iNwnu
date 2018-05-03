@@ -109,7 +109,7 @@
 
     <div style="width: 100%;height: 130px;padding: 5px 25px;" >
         <div style="height: 120px;width: 85%;float: left;border-radius: 18px;border:1px solid #bebebe;padding: 5px 10px;background-color: #ffdcb9">
-            <a > <p> 点歌人：${music.songpeople }</p>
+            <a > <p>给她点的歌：${music.songpeople }</p>
                 <p>歌曲名：${music.songname }</p>
                 <p>播放时间：<fmt:formatDate value="${music.songtime }" pattern="yyyy年MM月dd日HH点mm分" /></p>
                 <p> 点歌留言：${music.songmessage }</p>
