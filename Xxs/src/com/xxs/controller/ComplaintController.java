@@ -6,14 +6,8 @@ import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
 import java.util.ArrayList;
 import java.util.List;
->>>>>>> djk
->>>>>>> qy
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,14 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
->>>>>>> djk
->>>>>>> qy
 import com.xxs.bean.Complaint;
 import com.xxs.bean.Rest;
 import com.xxs.dao.ComplaintDao;
@@ -55,10 +43,6 @@ public class ComplaintController extends HttpServlet {
 		case "checkrest"://查询被投诉商铺rest
 			checkrest(request,response);
 			break;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
 		case "selectAllComplaints":
 			selectAllComplaints(request,response);
 			break;
@@ -68,8 +52,6 @@ public class ComplaintController extends HttpServlet {
 		case "selectMycom":
 			selectMycom(request,response);
 			break;
->>>>>>> djk
->>>>>>> qy
 		default:
 			break;
 		}
@@ -77,10 +59,6 @@ public class ComplaintController extends HttpServlet {
 	
 	}
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
 	private void selectMycom(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String stu_id = (String) request.getSession().getAttribute("id");
 		List restnames = new ArrayList<>();
@@ -134,8 +112,6 @@ public class ComplaintController extends HttpServlet {
 		request.getRequestDispatcher("Administrator/complain.jsp").forward(request, response);
 	}
 
->>>>>>> djk
->>>>>>> qy
 	private void checkrest(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String restname = request.getParameter("restname");//获取被投诉的商铺
 		System.out.println("restname1:"+restname);

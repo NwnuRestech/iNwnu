@@ -6,15 +6,7 @@ import java.util.List;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
-<<<<<<< HEAD
-import org.apache.tomcat.jdbc.pool.DataSource;
-=======
-<<<<<<< HEAD
-import org.apache.tomcat.jdbc.pool.DataSource;
-=======
 import org.apache.commons.dbutils.handlers.ScalarHandler;
->>>>>>> djk
->>>>>>> qy
 
 import com.xxs.bean.Music;
 import com.xxs.dao.MusicDao;
@@ -25,26 +17,6 @@ public class MusicDaoImpl implements MusicDao {
 	@Override
 	public int insertSong(Music music) throws SQLException {
 		QueryRunner queryRunner = new QueryRunner(JDBCTools.getDataSource());
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> qy
-		return queryRunner.update("insert into music values(?,?,?,?,?,?)",music.getSongid(),music.getSongpeople(),music.getSongname(),music.getSongtime(),music.getSongmessage(),music.isSongstatus());
-	}
-
-	@Override
-	public List<Music> selectAllsongs(int musicstatus) throws SQLException {
-		QueryRunner queryRunner = new QueryRunner(JDBCTools.getDataSource());
-		return queryRunner.query("select * from music where musicstatus = ? order by musictime asc", new BeanListHandler<Music>(Music.class),1,musicstatus);
-	}
-
-	@Override
-	public Music selectsong() throws SQLException {
-		QueryRunner queryRunner = new QueryRunner(JDBCTools.getDataSource());
-		return queryRunner.query("select * from music where musicstatus = ? order by musictime desc limit 1", new BeanHandler<Music>(Music.class),0);
-<<<<<<< HEAD
-=======
-=======
 		return queryRunner.update("insert into song values(?,?,?,?,?,?,?)",music.getSong_id(),music.getSong_stu(),music.getStu_id(),music.getSong_name(),music.getSong_time(),music.getSong_event(),music.getSong_state());
 	}
 
@@ -79,8 +51,6 @@ public class MusicDaoImpl implements MusicDao {
 		QueryRunner queryRunner = new QueryRunner(JDBCTools.getDataSource());
 		List<Music> allsongs = queryRunner.query("select * from song where song_state = ? and stu_id = ?", new BeanListHandler<Music>(Music.class),"0",stu_id);
 		return allsongs;
->>>>>>> djk
->>>>>>> qy
 	}
 
 }
